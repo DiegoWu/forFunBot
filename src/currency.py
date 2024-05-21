@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 import re
 
 class Rates:
-    def __init__(self):
+    def __init__(self): 
         self.dict = {}
         self.names = {}
         self.upd_time = None

@@ -36,7 +36,7 @@ class Xkcd(commands.Cog):
             except:
                 temp= 'https://xkcd.com/'+str(lt[v-1])+'/'
                 r= requests.get(temp)
-    @commands.command(help = "輸入單一數字，代表下載一則, 輸入 r 和 random 代表隨機下載一則,輸入以 , 分隔的多個數字，代表下載多則, 輸入一個 數字-數字 的範圍，代表下載多則, 輸入漫畫名會下載它並跳出漫畫", brief = "get specific xkcd comics")
+    @commands.command(help = "input a single digit representing downloading a piece of comic, input r or random would randomly download one comic,輸入以 , 分隔的多個數字，代表下載多則, 輸入一個 數字-數字 的範圍，代表下載多則, 輸入漫畫名會下載它並跳出漫畫", brief = "get specific xkcd comics")
     async def xkcd(self, ctx):
         await ctx.send("輸入單一數字，代表下載一則, 輸入 r 和 random 代表隨機下載一則,輸入以 , 分隔的多個數字，代表下載多則, 輸入一個 數字-數字 的範圍，代表下載多則, 輸入漫畫名會下載它並跳出漫畫： ")
         p= await self.bot.wait_for("message", timeout= 300.0)
@@ -122,3 +122,4 @@ class Xkcd(commands.Cog):
                 await ctx.send(file = picture) # Bot 傳送圖片
 def setup(bot):
     bot.add_cog(Xkcd(bot))
+

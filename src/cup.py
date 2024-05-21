@@ -1,11 +1,5 @@
 #################################################################
 #water jug problem 
-# no time complexity analysis and consideration   
-# water jug problem easist solution
-# no hash table so it's very slow QQ
-# no hash table so it's very slow QQ
-# no hash table so it's very slow QQ
-#我就爛
 # credit by Phantom
 #################################################################
 import discord
@@ -143,9 +137,9 @@ class Water_jug_problem(commands.Cog):
                 break
             cur_p += 1
         if not find:
-            await ctx.send('不要為難我了qwq, 這是不可能的任務')
+            await ctx.send('mission impossible')
         else:
-            await ctx.send(f'恭喜！\\^~^ 你只要 {ans.step} 步就可以得到 {t} 的水量！')
+            await ctx.send(f'Congrats！\\^~^ You only need {ans.step} step(s) for {t} ！')
             step_list = list()
             step_list.append(f'{ans.cups_volume}, {ans.status}')
             # initialize current father_index to search
@@ -156,7 +150,7 @@ class Water_jug_problem(commands.Cog):
                 father_index = data[father_index].father_index
             # because we're searching from back, we'll need to reverse the step logs
             step_list.reverse()
-            await ctx.send('以下是步驟！')
+            await ctx.send('the following is steps！')
             for step in step_list:
                 await ctx.send(step)
         cup_max.clear()

@@ -5,17 +5,16 @@
 import discord
 from discord.ext import commands
 import os
+from dotenv import load_dotenv
+load_dotenv()
 # Bot object、設定指令開頭
 bot = commands.Bot(command_prefix='$')
-
-# 從 token.txt 中讀取 token
-# 使用 os.path.join() 在不同作業系統會以 / 或是 \ 連接路徑
-with open(os.path.join("..", "info", "token.txt"), 'r') as f:
-    token = f.read().strip("\n")
+token = os.getenv("DISCORD_TOKEN")
 
 # 從 extensions.txt 中讀取現有功能，並加入那些功能
 with open(os.path.join("..", "info", "extensions.txt"), 'r') as f:
     for extension in f:
+        
         # 加入功能 (直接使用 Bot method: load_extension)
         bot.load_extension(extension.strip('\n')) 
 
