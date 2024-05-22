@@ -1,37 +1,22 @@
-# fly.toml file generated for forfunbot on 2023-01-29T19:06:30-06:00
+# fly.toml app configuration file generated for for-fun-bot-white-thunder-2976 on 2024-05-21T20:42:00-05:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
 
-app = "forfunbot"
-kill_signal = "SIGINT"
-kill_timeout = 5
-processes = []
+app = 'for-fun-bot-white-thunder-2976'
+primary_region = 'ord'
 
-[env]
+[build]
 
-[experimental]
-  auto_rollback = true
-
-[[services]]
-  http_checks = []
+[http_service]
   internal_port = 8080
-  processes = ["app"]
-  protocol = "tcp"
-  script_checks = []
-  [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
-    type = "connections"
+  force_https = true
+  auto_stop_machines = false
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
-  [[services.ports]]
-    force_https = true
-    handlers = ["http"]
-    port = 80
-
-  [[services.ports]]
-    handlers = ["tls", "http"]
-    port = 443
-
-  [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
