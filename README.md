@@ -2,11 +2,13 @@
 
 ## Description
 
-forFunBot is a versatile Discord bot created in 2021. It offers a variety of features, from fun games to practical tools, enhancing your Discord experience. Whether you're looking to play a guessing game, check the weather, or get the latest stock prices, forFunBot has you covered. It is now hopefully up and running on fly.io server.
+forFunBot is a versatile Discord bot created in 2021. It offers a variety of features, from fun games to practical tools, enhancing your Discord experience. Whether you're looking to play a guessing game, check the weather, or get the latest stock prices, forFunBot has you covered. It is now hopefully up and running on a Fly.io server.
+
+You can add this Discord bot to your server using [this invite link](https://discord.com/oauth2/authorize?client_id=1242625889527791677).
 
 ## Features
 
-- **1A2B**: classic guessing game where you guess four digits randomly generated.
+- **1A2B**: Classic guessing game where you guess four digits randomly generated.
 - **Weather**: Get the current weather in Taiwan.
 - **xkcd**: View the latest comics from the xkcd website.
 - **Yahoo**: Check out stock prices using the Yahoo API.
@@ -49,7 +51,7 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 ## Commands
 
 - **help**: `$help`
-    - * always use help before using a commmand
+    - Always use help before using a command
     - Example: `$help guess`
 - **1A2B**: `$guess`
     - Example: `$guess`
@@ -74,7 +76,6 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 
 We welcome contributions! Please read our [contributing guidelines](CONTRIBUTING.md) for more details.
 
-
 ## Contact
 
-For any questions or feedback, please reach out to me at 930404d@gmail.com.
+For any questions or feedback, please reach out to me at [930404d@gmail.com](mailto:930404d@gmail.com).
