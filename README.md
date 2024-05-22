@@ -20,7 +20,7 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/forFunBot.git
+    git clone git@github.com:DiegoWu/forFunBot.git
     ```
 2. Navigate to the project directory:
     ```bash
