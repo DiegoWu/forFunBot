@@ -42,7 +42,8 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 
 2. Start the bot:
     ```bash
-    python3 src/main.py
+    cd src
+    python3 main.py
     ```
 
 ## Commands
