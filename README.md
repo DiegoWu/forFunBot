@@ -6,7 +6,7 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 
 ## Features
 
-- **Guess**: Play a game where you guess four digits.
+- **1A2B**: classic guessing game where you guess four digits randomly generated.
 - **Weather**: Get the current weather in Taiwan.
 - **xkcd**: View the latest comics from the xkcd website.
 - **Yahoo**: Check out stock prices using the Yahoo API.
