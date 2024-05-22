@@ -18,6 +18,7 @@ class Combination:
         self.cups_volume = init_list
 # answer object
 ans = Combination(0, 0, '', list())
+
 class Water_jug_problem(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -36,6 +37,7 @@ class Water_jug_problem(commands.Cog):
             ,
         brief = "for fun"
     )
+
     async def cup(self, ctx):
         global data, cup_max, ans
         # cup count
@@ -156,5 +158,6 @@ class Water_jug_problem(commands.Cog):
                 await ctx.send(step)
         cup_max.clear()
         data.clear()
+
 def setup(bot):
     bot.add_cog(Water_jug_problem(bot))

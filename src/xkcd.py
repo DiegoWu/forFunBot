@@ -10,10 +10,13 @@ import os
 import string 
 import discord
 from discord.ext import commands
+
 class Xkcd(commands.Cog):
+    
     def __init__(self, bot):
         self.bot = bot
     @commands.command(help = "get five interesting comics", brief = "comics from xkcd")
+
     async def comics(self, ctx):
         await ctx.send("five amzuing comics!!!")
         lt = rd.sample(range(1, 2471), 6)
@@ -31,19 +34,21 @@ class Xkcd(commands.Cog):
                 file.write(res.content)  
                 file.close()
                 with open(os.path.join("..", "storage", b), "rb") as f:
-                    picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                    await ctx.send(file = picture) # Bot 傳送圖片
+                    picture = discord.File(f) # convert files to discord campatible format
+                    await ctx.send(file = picture) # Bot sends picture
                 temp= 'https://xkcd.com/'+str(lt[v])+'/'
                 r= requests.get(temp)
             except:
                 temp= 'https://xkcd.com/'+str(lt[v-1])+'/'
                 r= requests.get(temp)
     @commands.command(help = "enter one comics number for one comics,r or random for one random comics, enter numbers seperated by , for more multiple comics, enter a range ex 1-5 for comics 1 to 5, enter the name of the comics for that comics: ", brief = "get specific xkcd comics")
+
     async def xkcd(self, ctx):
         await ctx.send("enter one comics number for one comics,r or random for one random comics, enter numbers seperated by , for more multiple comics, enter a range ex 1-5 for comics 1 to 5, enter the name of the comics for that comics: ")
         p= await self.bot.wait_for("message", timeout= 300.0)
         p= p.content
         await ctx.send("processing------------------------------------------------------")
+
         if p==('r'or 'random'): 
             try:
                 lt = rd.sample(range(1, 2471), 50)
@@ -63,6 +68,7 @@ class Xkcd(commands.Cog):
                     await ctx.send(file = picture) # Bot send picture
             except:
                 ctx.send('unexpected error!')
+
         elif p.find("-")!= -1:   
             l= list(p.split('-'))
             l= sorted(l, key= int)  
@@ -78,6 +84,7 @@ class Xkcd(commands.Cog):
                 with open(os.path.join("..", "storage", str(i)+".png"), "rb") as f:
                     picture = discord.File(f) # convert files to discord campatible format
                     await ctx.send(file = picture) # Bot sends picture
+
         elif p.find(',')!= -1 or p.isdigit()== True:
             l= list(p.split(','))
             for i in range(len(l)):
@@ -96,6 +103,7 @@ class Xkcd(commands.Cog):
                 except:
                     await ctx.send( "sorry {intt} comic's 404 not found :( ".format(intt= l[i]))
                     continue
+                
         else: #bonus
             try:
                 pp= p.lower()
@@ -122,6 +130,6 @@ class Xkcd(commands.Cog):
             with open(os.path.join("..", "storage", pp+".png"), "rb") as f:
                 picture = discord.File(f) # convert files to discord campatible format
                 await ctx.send(file = picture) # Bot send pictures 
+
 def setup(bot):
     bot.add_cog(Xkcd(bot))
-

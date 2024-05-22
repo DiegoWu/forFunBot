@@ -10,7 +10,6 @@ from discord.utils import to_json
 
 
 class Todo:
-    # init
     def __init__(self, date, label, item):
         #  see if the date is valid
         d = re.compile("[0-9]{1,2}/[0-9]{1,2}")
@@ -19,18 +18,17 @@ class Todo:
         self.label = label
         self.item = item
 
-    
     def __lt__(self, other):
         return self.date< other.date
         
     def __eq__(self, other):
         return self.date==other.date and self.label==other.label and self.item==other.item
 
-   
     def __repr__(self):
         return f"{self.date} {self.label} {self.item}"
 # open file in read mode
 lines= []
+
 def open_file():
     with open('record_the_todo_list', 'r') as file_handle:
         global lines
@@ -49,7 +47,6 @@ open_file()
 class Todo_list(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-       
         # open file in read mode
         self.todo_list =lines
     # read file content into list
@@ -62,6 +59,7 @@ class Todo_list(commands.Cog):
         ''', 
         brief = "Add TODO." 
     )
+
     async def add(self, ctx, date, label, *, item):
         try:
             
@@ -92,6 +90,7 @@ class Todo_list(commands.Cog):
         ''', 
         brief = "Done TODO."
     )
+
     async def done(self, ctx, date, label, *, item):
         try:
             t = Todo(date, label, item)
@@ -110,7 +109,6 @@ class Todo_list(commands.Cog):
         
         await ctx.send('"{}"  delete from TODO list'.format(item))
        
-
     # $show [label]
     @commands.command(
         help = '''
@@ -121,6 +119,7 @@ class Todo_list(commands.Cog):
         ''',
         brief = "Show all TODO with the label if specified sorted by date." 
     )
+
     async def show(self, ctx, label=None):
         try:
             t = label
@@ -140,8 +139,6 @@ class Todo_list(commands.Cog):
             return
         
         await ctx.send('show {} todo_list '.format(label))
-       
- 
     # $clear
     @commands.command(help = "Clear TODO list.", brief = "Clear TODO list.")
     async def clear(self, ctx):

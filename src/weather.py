@@ -1,5 +1,5 @@
 # weather.py
-# 功能：印出中央氣象局的衛星雲圖
+# print the satellite cloud chart of Central Weather Bureau
 
 import discord
 from discord.ext import commands
@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import io
 
-# 輸入時間，取得 24hr 內的衛星雲圖
+# input time H and M, return the satellite cloud chart of Central Weather Bureau
 # https://www.cwb.gov.tw/V8/C/W/OBS_Sat.html
 def get_chart(H=None, M=None):
     now = datetime.now()

@@ -1,5 +1,5 @@
-# 檔名：picture.py
-# 功能：上傳、發送照片（簡單示範和照片有關的用法）
+# picture.py
+# upload pics, show pics
 
 import discord
 from discord.ext import commands
@@ -9,32 +9,32 @@ class Picture(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    # 上傳照片
-    # 使用者輸入 $upload 時會觸發
+    # upload a picture
+    # trigger when user input $upload
     @commands.command(help = "Upload a picture.", brief = "Upload a picture.")
     async def upload(self, ctx):
-        # 取得照片
+        # fetch the image from the message
         try:
             response = requests.get(ctx.message.attachments[0].url)
         except IndexError:
             return await ctx.send('Image invalid!')
-        # 開檔，把照片寫入
+        # save the image
         file = open(os.path.join("..", "storage", "sample_image.png"), "wb")
         file.write(response.content)
         file.close()
 
-    # bot 傳送照片
-    # 使用者輸入 $show_pic 時會觸發
+    # bot sends pictures
+    # trigger when user input $show_pic
     @commands.command(help = "Show a picture.", brief = "Show a picture.")
     async def show_pic(self, ctx):
-        # 開檔讀取照片
+        # read the image
         try:
             with open(os.path.join("..", "storage", "sample_image.png"), "rb") as f:
-                picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                await ctx.send(file = picture) # Bot 傳送圖片
+                picture = discord.File(f) # convert the file content to a format that can be sent on discord
+                await ctx.send(file = picture) # Bot sends the picture
         except FileNotFoundError:
             await ctx.send('Saved image not found!')
 
-# 從主程式加入此功能需要用到的函數
+# add the cog to the bot
 def setup(bot):
     bot.add_cog(Picture(bot))

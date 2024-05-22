@@ -4,12 +4,12 @@ from bs4 import BeautifulSoup as bs
 import requests
 import os
 import json
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import discord
 import os
 from discord.ext import commands
+
 class Stonk(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -21,6 +21,7 @@ class Stonk(commands.Cog):
         ''', 
         brief = "Print current day's simple stock price diagram"
     )
+
     async def stonk(self, ctx):
         await ctx.send("please enter stock number:")
         t= await self.bot.wait_for('message', timeout= 300.0)
@@ -52,6 +53,7 @@ class Stonk(commands.Cog):
         help= "get stats for stock index",
         brief= "get the overall info of Taiwan's stock market"
     )
+
     async def tmarket(self, ctx):
         r= requests.get('https://tw.stock.yahoo.com/')
         soup= bs(r.text, "html.parser")
@@ -71,7 +73,6 @@ class Stonk(commands.Cog):
         await ctx.send(vvv[0].text)
         await ctx.send(cc[0].text)
         await ctx.send(ccc[0].text)
-
 
 def setup(bot):
     bot.add_cog(Stonk(bot))
