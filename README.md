@@ -51,7 +51,7 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 - **help**: `$help`
     - * always use help before using a commmand
     - Example: `$help guess`
-- **Guess**: `$guess`
+- **1A2B**: `$guess`
     - Example: `$guess`
 - **Weather**: `$weather`
     - Example: `$weather`
