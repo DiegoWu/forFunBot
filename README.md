@@ -42,29 +42,32 @@ forFunBot is a versatile Discord bot created in 2021. It offers a variety of fea
 
 2. Start the bot:
     ```bash
-    node bot.js
+    python3 src/main.py
     ```
 
 ## Commands
 
-- **Guess**: `!guess <four digits>`
-    - Example: `!guess 1234`
-- **Weather**: `!weather`
-    - Example: `!weather`
-- **xkcd**: `!xkcd`
-    - Example: `!xkcd`
-- **Yahoo**: `!yahoo <stock_symbol>`
-    - Example: `!yahoo AAPL`
-- **Todo List**: `!todo <action> <item>`
-    - Example: `!todo add Buy milk`
-- **Picture**: `!picture <upload>`
-    - Example: `!picture upload path/to/picture.jpg`
-- **Currency**: `!currency <currency_code>`
-    - Example: `!currency USD`
-- **Covid**: `!covid`
-    - Example: `!covid`
-- **Cup**: `!cup <choice>`
-    - Example: `!cup 1`
+- **help**: `$help`
+    - * always use help before using a commmand
+    - Example: `$help guess`
+- **Guess**: `$guess`
+    - Example: `$guess`
+- **Weather**: `$weather`
+    - Example: `$weather`
+- **xkcd**: `$xkcd`
+    - Example: `$xkcd`
+- **Yahoo**: `$stonk <stock_symbol>`
+    - Example: `$yahoo AAPL`
+- **Todo List**: `$todo <action> <item>`
+    - Example: `$todo add Buy milk`
+- **Picture**: `$picture <upload>`
+    - Example: `$picture upload path/to/picture.jpg`
+- **Currency**: `$currency <currency_code>`
+    - Example: `$currency USD`
+- **Covid**: `$covid`
+    - Example: `$covid`
+- **Cup**: `$cup`
+    - Example: `$cup`
 
 ## Contributing
 

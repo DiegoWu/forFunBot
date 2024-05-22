@@ -1,3 +1,5 @@
+# xkcd.py
+
 import requests 
 from bs4 import BeautifulSoup as bs
 import random as rd
@@ -36,9 +38,9 @@ class Xkcd(commands.Cog):
             except:
                 temp= 'https://xkcd.com/'+str(lt[v-1])+'/'
                 r= requests.get(temp)
-    @commands.command(help = "input a single digit representing downloading a piece of comic, input r or random would randomly download one comic,輸入以 , 分隔的多個數字，代表下載多則, 輸入一個 數字-數字 的範圍，代表下載多則, 輸入漫畫名會下載它並跳出漫畫", brief = "get specific xkcd comics")
+    @commands.command(help = "enter one comics number for one comics,r or random for one random comics, enter numbers seperated by , for more multiple comics, enter a range ex 1-5 for comics 1 to 5, enter the name of the comics for that comics: ", brief = "get specific xkcd comics")
     async def xkcd(self, ctx):
-        await ctx.send("輸入單一數字，代表下載一則, 輸入 r 和 random 代表隨機下載一則,輸入以 , 分隔的多個數字，代表下載多則, 輸入一個 數字-數字 的範圍，代表下載多則, 輸入漫畫名會下載它並跳出漫畫： ")
+        await ctx.send("enter one comics number for one comics,r or random for one random comics, enter numbers seperated by , for more multiple comics, enter a range ex 1-5 for comics 1 to 5, enter the name of the comics for that comics: ")
         p= await self.bot.wait_for("message", timeout= 300.0)
         p= p.content
         await ctx.send("processing------------------------------------------------------")
@@ -57,8 +59,8 @@ class Xkcd(commands.Cog):
                 file.write(res.content)
                 file.close()
                 with open(os.path.join("..", "storage", "random.png"), "rb") as f:
-                    picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                    await ctx.send(file = picture) # Bot 傳送圖片
+                    picture = discord.File(f) # convert files to discord campatible format
+                    await ctx.send(file = picture) # Bot send picture
             except:
                 ctx.send('unexpected error!')
         elif p.find("-")!= -1:   
@@ -74,8 +76,8 @@ class Xkcd(commands.Cog):
                 file.write(res.content)
                 file.close()
                 with open(os.path.join("..", "storage", str(i)+".png"), "rb") as f:
-                    picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                    await ctx.send(file = picture) # Bot 傳送圖片
+                    picture = discord.File(f) # convert files to discord campatible format
+                    await ctx.send(file = picture) # Bot sends picture
         elif p.find(',')!= -1 or p.isdigit()== True:
             l= list(p.split(','))
             for i in range(len(l)):
@@ -89,8 +91,8 @@ class Xkcd(commands.Cog):
                     file.write(res.content)
                     file.close()
                     with open(os.path.join("..", "storage", l[i]+".png"), "rb") as f:
-                        picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                        await ctx.send(file = picture) # Bot 傳送圖片
+                        picture = discord.File(f) # convert files to discord campatible format
+                        await ctx.send(file = picture) # Bot sends pictures
                 except:
                     await ctx.send( "sorry {intt} comic's 404 not found :( ".format(intt= l[i]))
                     continue
@@ -118,8 +120,8 @@ class Xkcd(commands.Cog):
             plt.savefig(os.path.join("..", "storage",pp+'.png'), bbox_inches='tight') 
             plt.close() 
             with open(os.path.join("..", "storage", pp+".png"), "rb") as f:
-                picture = discord.File(f) # 把檔案內容轉成 discord 上可以傳送的格式
-                await ctx.send(file = picture) # Bot 傳送圖片
+                picture = discord.File(f) # convert files to discord campatible format
+                await ctx.send(file = picture) # Bot send pictures 
 def setup(bot):
     bot.add_cog(Xkcd(bot))
 

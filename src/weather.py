@@ -1,4 +1,4 @@
-# 檔名：weather.py
+# weather.py
 # 功能：印出中央氣象局的衛星雲圖
 
 import discord
